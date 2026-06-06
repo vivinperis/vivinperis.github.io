@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vivin Peris</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg-2: #12121a;
+    --fg: #e6e6ec;
+    --muted: #8a8a96;
+    --accent-1: #a78bfa;
+    --accent-2: #f472b6;
+    --accent-3: #38bdf8;
+    --line: rgba(255,255,255,0.08);
+    --card: rgba(255,255,255,0.03);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, sans-serif; line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body { background-image: radial-gradient(circle at 15% -10%, rgba(167,139,250,0.18), transparent 40%), radial-gradient(circle at 85% 10%, rgba(244,114,182,0.14), transparent 45%); background-attachment: fixed; }
+  main { max-width: 880px; margin: 0 auto; padding: 80px 32px 120px; }
+  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 100px; }
+  .logo { font-weight: 700; letter-spacing: -0.02em; font-size: 18px; }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; }
+  .nav-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--fg); }
+  header { margin-bottom: 96px; opacity: 0; animation: fadeUp .8s ease forwards; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+  .eyebrow .dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 12px #22c55e; }
+  h1 { font-size: 64px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 24px; background: linear-gradient(120deg, var(--fg) 0%, var(--accent-1) 60%, var(--accent-2) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .lede { font-size: 20px; color: var(--muted); max-width: 620px; line-height: 1.55; }
+  .lede strong { color: var(--fg); font-weight: 500; }
+  .hero-links { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: transform .15s, background .2s, border-color .2s; }
+  .btn-primary { background: var(--fg); color: var(--bg); }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-ghost { background: var(--card); color: var(--fg); border: 1px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--accent-1); }
+  section { margin-bottom: 96px; opacity: 0; animation: fadeUp .8s ease forwards; animation-delay: .15s; }
+  section:nth-of-type(2) { animation-delay: .3s; } section:nth-of-type(3) { animation-delay: .4s; } section:nth-of-type(4) { animation-delay: .5s; }
+  h2 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-3); margin-bottom: 32px; }
+  h2::before { content: "// "; color: var(--muted); }
+  .role { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
+  .role:last-child { border-bottom: 1px solid var(--line); }
+  .role-date { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .role-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .role-company { font-size: 14px; color: var(--accent-1); margin-bottom: 12px; }
+  .role ul { list-style: none; }
+  .role li { color: var(--muted); padding-left: 16px; position: relative; margin-bottom: 6px; font-size: 15px; line-height: 1.55; }
+  .role li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 1px; background: var(--accent-1); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { padding: 24px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; transition: border-color .2s, transform .15s; }
+  .card:hover { border-color: var(--accent-1); transform: translateY(-2px); }
+  .card-title { font-weight: 600; margin-bottom: 8px; font-size: 16px; }
+  .card-title a { color: var(--fg); text-decoration: none; background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .card-desc { color: var(--muted); font-size: 14px; line-height: 1.55; }
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill { font-size: 13px; padding: 6px 12px; background: var(--card); border: 1px solid var(--line); border-radius: 6px; color: var(--muted); }
+  .skill:hover { color: var(--fg); border-color: var(--accent-1); }
+  .edu { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-top: 1px solid var(--line); flex-wrap: wrap; gap: 12px; }
+  .edu:last-child { border-bottom: 1px solid var(--line); }
+  .edu-school { font-weight: 600; font-size: 16px; }
+  .edu-degree { color: var(--muted); font-size: 14px; }
+  footer { margin-top: 96px; padding-top: 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 640px) {
+    h1 { font-size: 40px; }
+    .role { grid-template-columns: 1fr; gap: 8px; }
+    .grid { grid-template-columns: 1fr; }
+    nav { margin-bottom: 60px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <nav>
+    <div class="logo">VP</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="eyebrow"><span class="dot"></span> Open to interesting conversations</div>
+    <h1>Vivin Peris.<br/>Engineer building agentic AI at scale.</h1>
+    <p class="lede">Senior Software Engineer at <strong>Rippling</strong>. I build <strong>agentic harnesses, connectors, and evals</strong> that ship AI features customers actually use — and I care about the systems plumbing that makes them work at scale.</p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="mailto:vivinperis98@gmail.com">Get in touch →</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/vivinperis" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/vivinperis" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <section id="work">
+    <h2>Experience</h2>
+
+    <div class="role">
+      <div class="role-date">May 2024 — Now</div>
+      <div>
+        <div class="role-title">Senior Software Engineer</div>
+        <div class="role-company">Rippling</div>
+        <ul>
+          <li>Designed an agentic connector harness (tooling, skills, evals, judges, simulator) adopted by 50+ engineers</li>
+          <li>Integrated managed connectors with Rippling AI; kept automated eval coverage above 80%</li>
+          <li>Built an aggregation engine across 50+ tax/wage dimensions for 20K companies and 1M employees</li>
+          <li>Three patents filed — aggregation engine, AI-based search, audit framework</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-date">May 2023 — May 2024</div>
+      <div>
+        <div class="role-title">Senior Software Engineer</div>
+        <div class="role-company">bodo.ai</div>
+        <ul>
+          <li>Led billing export at cluster + job-run level, cutting customer server costs 30%</li>
+          <li>Auto-AZ feature cut cluster failure rates ~40%; spot-instance work saved 50%+ on compute</li>
+          <li>Built a JDBC driver from scratch for Snowflake-style BI tool integration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-date">Jul 2020 — Aug 2022</div>
+      <div>
+        <div class="role-title">Senior Software Engineer · Founding Engineer</div>
+        <div class="role-company">Ula</div>
+        <ul>
+          <li>7th tech hire (team grew to 125+); owned user service at 1M req/min peak</li>
+          <li>Homepage personalization drove 30% conversion lift and 20% more orders</li>
+          <li>Onboarding revamp moved successful registration from 35% → 60%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-date">Jun — Aug 2020</div>
+      <div>
+        <div class="role-title">Google Summer of Code</div>
+        <div class="role-company">Balabit / Syslog-ng</div>
+        <ul>
+          <li>Added template syntax support for the Kafka destination topic() parameter with fallback handling and full unit test coverage</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Selected Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-title">Agentic Connector Harness</div>
+        <div class="card-desc">A tooling + evals + simulator platform at Rippling that standardized managed-connector development. Adopted by 50+ engineers across orgs.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">JDBC Driver from Scratch</div>
+        <div class="card-desc">Built a JDBC driver at bodo.ai to bridge compute jobs with Snowflake-style BI tools — full protocol implementation.</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><a href="https://www.youtube.com/watch?v=Ow9ISLC2RPc" target="_blank" rel="noopener">Quadruped Robot ↗</a></div>
+        <div class="card-desc">NITK ROBOCON. Obstacle traversal, object handling, ramp climbing. Live demos on YouTube.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Lung Numerical Modelling</div>
+        <div class="card-desc">IIT Madras research — Monte Carlo simulation of how asymmetry in lung structure affects disease likelihood.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Stack</h2>
+    <div class="skills">
+      <span class="skill">Python</span>
+      <span class="skill">Anthropic Claude</span>
+      <span class="skill">Gemini</span>
+      <span class="skill">LLMs</span>
+      <span class="skill">LangGraph</span>
+      <span class="skill">Distributed Systems</span>
+      <span class="skill">Kafka</span>
+      <span class="skill">Flink</span>
+      <span class="skill">Druid</span>
+      <span class="skill">Evals & Judges</span>
+      <span class="skill">AWS</span>
+      <span class="skill">GCP</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <div>
+        <div class="edu-school">Georgia Institute of Technology</div>
+        <div class="edu-degree">M.S., Computer Science</div>
+      </div>
+    </div>
+    <div class="edu">
+      <div>
+        <div class="edu-school">National Institute of Technology Karnataka</div>
+        <div class="edu-degree">B.Tech</div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div>vivinperis98@gmail.com · San Francisco, CA</div>
+    <div>© 2026 Vivin Peris</div>
+  </footer>
+</main>
+</body>
+</html>
