@@ -3,215 +3,827 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vivin Peris</title>
+<title>Vivin Peris — Senior Software Engineer</title>
+<meta name="description" content="Senior Software Engineer at Rippling. I build agentic AI systems, connector harnesses, and large-scale infrastructure." />
+<meta property="og:title" content="Vivin Peris — Senior Software Engineer" />
+<meta property="og:description" content="Building agentic AI systems and large-scale infrastructure at Rippling." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #0a0a0f;
-    --bg-2: #12121a;
-    --fg: #e6e6ec;
-    --muted: #8a8a96;
-    --accent-1: #a78bfa;
-    --accent-2: #f472b6;
-    --accent-3: #38bdf8;
-    --line: rgba(255,255,255,0.08);
-    --card: rgba(255,255,255,0.03);
+    --bg: #08090c;
+    --bg-elev: #0e1016;
+    --bg-card: rgba(255,255,255,0.025);
+    --bg-card-hover: rgba(255,255,255,0.04);
+    --fg: #ededf0;
+    --fg-2: #c4c5cc;
+    --muted: #71737e;
+    --muted-2: #4a4c55;
+    --line: rgba(255,255,255,0.06);
+    --line-2: rgba(255,255,255,0.10);
+    --accent: #a78bfa;
+    --accent-strong: #8b5cf6;
+    --accent-2: #f0abfc;
+    --amber: #fcd34d;
+    --green: #34d399;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --radius: 14px;
+    --container: 1140px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, sans-serif; line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
-  body { background-image: radial-gradient(circle at 15% -10%, rgba(167,139,250,0.18), transparent 40%), radial-gradient(circle at 85% 10%, rgba(244,114,182,0.14), transparent 45%); background-attachment: fixed; }
-  main { max-width: 880px; margin: 0 auto; padding: 80px 32px 120px; }
-  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 100px; }
-  .logo { font-weight: 700; letter-spacing: -0.02em; font-size: 18px; }
-  .nav-links { display: flex; gap: 28px; font-size: 14px; }
-  .nav-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--sans);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(900px 600px at 15% -10%, rgba(167,139,250,0.10), transparent 60%),
+      radial-gradient(700px 500px at 90% 10%, rgba(240,171,252,0.06), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  main, nav { position: relative; z-index: 1; }
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav.top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    background: rgba(8,9,12,0.6);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; letter-spacing: -0.01em; font-size: 15px;
+  }
+  .brand-mark {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    display: grid; place-items: center;
+    color: #1a0d2e; font-weight: 800; font-size: 12px;
+    box-shadow: 0 4px 12px rgba(167,139,250,0.25);
+  }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--fg-2); }
+  .nav-links a { transition: color .2s; }
   .nav-links a:hover { color: var(--fg); }
-  header { margin-bottom: 96px; opacity: 0; animation: fadeUp .8s ease forwards; }
-  .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); font-size: 13px; color: var(--muted); margin-bottom: 28px; }
-  .eyebrow .dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 12px #22c55e; }
-  h1 { font-size: 64px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 24px; background: linear-gradient(120deg, var(--fg) 0%, var(--accent-1) 60%, var(--accent-2) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  .lede { font-size: 20px; color: var(--muted); max-width: 620px; line-height: 1.55; }
-  .lede strong { color: var(--fg); font-weight: 500; }
-  .hero-links { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: transform .15s, background .2s, border-color .2s; }
+  .nav-cta {
+    padding: 8px 16px; border-radius: 8px;
+    background: var(--fg); color: var(--bg);
+    font-size: 13px; font-weight: 600;
+    transition: transform .15s, box-shadow .2s;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 30px rgba(255,255,255,0.10); }
+
+  /* CONTAINER */
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+  section { padding: 96px 0; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .section-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 48px; }
+  .section-num { font-family: var(--mono); font-size: 13px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
+  .section-title { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+  .section-rule { flex: 1; height: 1px; background: linear-gradient(to right, var(--line-2), transparent); }
+
+  /* HERO */
+  .hero { padding: 80px 0 64px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+  }
+  .status {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 6px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--fg-2);
+    margin-bottom: 32px;
+  }
+  .status .pulse {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+    box-shadow: 0 0 0 0 rgba(52,211,153,0.5);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(52,211,153,0); }
+    100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
+  }
+  h1.display {
+    font-size: clamp(48px, 7vw, 84px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  h1.display .italic {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+    padding-right: 6px;
+  }
+  .role-line { font-size: 18px; color: var(--fg-2); margin-bottom: 20px; font-weight: 500; }
+  .role-line .at { color: var(--muted); }
+  .role-line .co { color: var(--fg); }
+  .lede { font-size: 17px; color: var(--muted); max-width: 580px; line-height: 1.6; margin-bottom: 36px; }
+  .lede strong { color: var(--fg-2); font-weight: 500; }
+
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px; border-radius: 10px;
+    font-size: 14px; font-weight: 500;
+    transition: transform .15s, background .2s, border-color .2s, box-shadow .2s;
+    border: 1px solid transparent;
+  }
   .btn-primary { background: var(--fg); color: var(--bg); }
-  .btn-primary:hover { transform: translateY(-1px); }
-  .btn-ghost { background: var(--card); color: var(--fg); border: 1px solid var(--line); }
-  .btn-ghost:hover { border-color: var(--accent-1); }
-  section { margin-bottom: 96px; opacity: 0; animation: fadeUp .8s ease forwards; animation-delay: .15s; }
-  section:nth-of-type(2) { animation-delay: .3s; } section:nth-of-type(3) { animation-delay: .4s; } section:nth-of-type(4) { animation-delay: .5s; }
-  h2 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-3); margin-bottom: 32px; }
-  h2::before { content: "// "; color: var(--muted); }
-  .role { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
-  .role:last-child { border-bottom: 1px solid var(--line); }
-  .role-date { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
-  .role-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
-  .role-company { font-size: 14px; color: var(--accent-1); margin-bottom: 12px; }
-  .role ul { list-style: none; }
-  .role li { color: var(--muted); padding-left: 16px; position: relative; margin-bottom: 6px; font-size: 15px; line-height: 1.55; }
-  .role li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 1px; background: var(--accent-1); }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .card { padding: 24px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; transition: border-color .2s, transform .15s; }
-  .card:hover { border-color: var(--accent-1); transform: translateY(-2px); }
-  .card-title { font-weight: 600; margin-bottom: 8px; font-size: 16px; }
-  .card-title a { color: var(--fg); text-decoration: none; background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  .card-desc { color: var(--muted); font-size: 14px; line-height: 1.55; }
-  .skills { display: flex; flex-wrap: wrap; gap: 8px; }
-  .skill { font-size: 13px; padding: 6px 12px; background: var(--card); border: 1px solid var(--line); border-radius: 6px; color: var(--muted); }
-  .skill:hover { color: var(--fg); border-color: var(--accent-1); }
-  .edu { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-top: 1px solid var(--line); flex-wrap: wrap; gap: 12px; }
-  .edu:last-child { border-bottom: 1px solid var(--line); }
-  .edu-school { font-weight: 600; font-size: 16px; }
-  .edu-degree { color: var(--muted); font-size: 14px; }
-  footer { margin-top: 96px; padding-top: 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  @media (max-width: 640px) {
-    h1 { font-size: 40px; }
-    .role { grid-template-columns: 1fr; gap: 8px; }
-    .grid { grid-template-columns: 1fr; }
-    nav { margin-bottom: 60px; }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(255,255,255,0.10); }
+  .btn-ghost { background: var(--bg-card); border-color: var(--line-2); color: var(--fg-2); }
+  .btn-ghost:hover { color: var(--fg); border-color: var(--accent); background: var(--bg-card-hover); }
+  .btn .arrow { transition: transform .15s; }
+  .btn:hover .arrow { transform: translateX(2px); }
+
+  /* Avatar */
+  .avatar-wrap {
+    position: relative;
+    display: grid; place-items: center;
+    aspect-ratio: 1;
+    max-width: 320px;
+    margin-left: auto;
+  }
+  .avatar {
+    position: relative;
+    width: 100%; aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent 50%),
+      linear-gradient(135deg, #1a1530 0%, #0a0a14 100%);
+    display: grid; place-items: center;
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    font-size: clamp(80px, 11vw, 140px);
+    color: var(--fg);
+    letter-spacing: -0.04em;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.06),
+      0 30px 80px -20px rgba(167,139,250,0.30),
+      0 0 100px -30px rgba(240,171,252,0.20);
+  }
+  .avatar::before {
+    content: "";
+    position: absolute; inset: -2px;
+    border-radius: 50%;
+    background: conic-gradient(from 180deg, transparent 0%, var(--accent) 25%, var(--accent-2) 45%, transparent 70%, var(--accent) 100%);
+    z-index: -1;
+    filter: blur(2px);
+    opacity: 0.6;
+  }
+  .avatar-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(20px);
+  }
+  .orb-1 { width: 80px; height: 80px; background: var(--accent); top: -10%; right: 5%; opacity: 0.4; }
+  .orb-2 { width: 60px; height: 60px; background: var(--accent-2); bottom: -5%; left: 0%; opacity: 0.35; }
+  .meta-chip {
+    position: absolute;
+    bottom: -12px; left: 50%; transform: translateX(-50%);
+    padding: 6px 14px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--fg-2);
+    white-space: nowrap;
+  }
+  .meta-chip .dot { color: var(--accent); margin: 0 6px; }
+
+  /* STATS */
+  .stats {
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat { padding: 8px 28px; border-left: 1px solid var(--line); }
+  .stat:first-child { border-left: none; padding-left: 0; }
+  .stat-num {
+    font-size: clamp(32px, 4.5vw, 44px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 8px;
+    color: var(--fg);
+  }
+  .stat-num .unit { color: var(--accent); }
+  .stat-label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+  /* NOW */
+  .now { padding: 64px 0; }
+  .now-card {
+    padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(167,139,250,0.06), rgba(240,171,252,0.02));
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .now-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    padding-top: 4px;
+    white-space: nowrap;
+  }
+  .now-text { color: var(--fg-2); font-size: 16px; line-height: 1.7; }
+  .now-text a { color: var(--fg); border-bottom: 1px solid var(--accent); padding-bottom: 1px; }
+  .now-text a:hover { color: var(--accent); }
+
+  /* EXPERIENCE */
+  .role-card {
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    transition: background .25s;
+  }
+  .role-card:last-child { border-bottom: 1px solid var(--line); }
+  .role-card:hover { background: rgba(255,255,255,0.012); }
+  .role-meta { padding-top: 4px; }
+  .role-company {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 8px;
+  }
+  .company-mark {
+    width: 28px; height: 28px; border-radius: 7px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line-2);
+    display: grid; place-items: center;
+    font-weight: 700; font-size: 12px;
+    color: var(--accent);
+    font-family: var(--mono);
+  }
+  .company-name { font-weight: 600; font-size: 16px; }
+  .role-date { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .role-loc { font-size: 12px; color: var(--muted-2); margin-top: 4px; }
+
+  .role-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 14px; color: var(--fg); }
+  .role-body ul { list-style: none; }
+  .role-body li {
+    color: var(--fg-2);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .role-body li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 10px;
+    width: 12px; height: 1px;
+    background: var(--accent);
+  }
+  .role-body li strong { color: var(--fg); font-weight: 600; }
+  .role-body code { font-family: var(--mono); color: var(--accent); font-size: 13px; }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .project-card {
+    position: relative;
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: transform .2s, border-color .2s, background .2s;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0; transition: opacity .25s;
+  }
+  .project-card:hover { transform: translateY(-3px); border-color: var(--line-2); background: var(--bg-card-hover); }
+  .project-card:hover::before { opacity: 1; }
+  .project-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+  .project-title { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+  .project-title a { display: inline-flex; align-items: center; gap: 6px; }
+  .project-title a:hover { color: var(--accent); }
+  .project-year { font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 3px 8px; border: 1px solid var(--line-2); border-radius: 6px; white-space: nowrap; }
+  .project-desc { color: var(--fg-2); font-size: 14.5px; line-height: 1.65; margin-bottom: 18px; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-tag { font-family: var(--mono); font-size: 11px; padding: 3px 9px; background: rgba(167,139,250,0.08); color: var(--accent); border-radius: 5px; }
+
+  /* STACK */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .stack-col-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .stack-list { list-style: none; }
+  .stack-list li { font-size: 14.5px; color: var(--fg-2); padding: 5px 0; }
+
+  /* EDUCATION */
+  .edu-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .edu-row:last-child { border-bottom: 1px solid var(--line); }
+  .edu-school { font-size: 18px; font-weight: 600; }
+  .edu-degree { color: var(--muted); font-size: 14.5px; margin-top: 2px; }
+  .edu-side { font-family: var(--mono); font-size: 12px; color: var(--muted); text-align: right; }
+
+  /* HONORS */
+  .honors-strip { padding: 56px 0; border-top: 1px solid var(--line); }
+  .honors-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .honor {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    font-size: 13px; color: var(--fg-2);
+  }
+  .honor .star { color: var(--amber); }
+
+  /* FOOTER */
+  footer {
+    margin-top: 32px;
+    padding: 80px 0 64px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+  }
+  .footer-cta { font-family: var(--serif); font-style: italic; font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 16px; }
+  .footer-cta .grad { background: linear-gradient(120deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .footer-email { display: inline-flex; align-items: center; gap: 10px; font-size: 16px; color: var(--fg-2); }
+  .footer-email:hover { color: var(--accent); }
+  .footer-socials { display: flex; gap: 16px; }
+  .footer-socials a { font-size: 14px; color: var(--muted); transition: color .2s; }
+  .footer-socials a:hover { color: var(--fg); }
+  .footer-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--muted); font-family: var(--mono); }
+
+  /* RESPONSIVE */
+  @media (max-width: 880px) {
+    section { padding: 72px 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .avatar-wrap { margin: 0 auto; max-width: 260px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; }
+    .stat { border-left: none; padding: 0 16px; }
+    .stat:nth-child(2) { border-left: 1px solid var(--line); }
+    .stat:nth-child(3) { border-top: 1px solid var(--line); padding-top: 32px; }
+    .stat:nth-child(4) { border-top: 1px solid var(--line); padding-top: 32px; border-left: 1px solid var(--line); }
+    .role-card { grid-template-columns: 1fr; gap: 12px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .now-card { grid-template-columns: 1fr; gap: 12px; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .container, .nav-inner { padding-left: 20px; padding-right: 20px; }
+    .nav-links { display: none; }
+    .stack-grid { grid-template-columns: 1fr; gap: 24px; }
   }
 </style>
 </head>
 <body>
-<main>
-  <nav>
-    <div class="logo">VP</div>
+
+<nav class="top">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <div class="brand-mark">V</div>
+      Vivin Peris
+    </a>
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#projects">Projects</a>
+      <a href="#stack">Stack</a>
       <a href="#contact">Contact</a>
     </div>
-  </nav>
+    <a class="nav-cta" href="mailto:vivinperis98@gmail.com">Get in touch →</a>
+  </div>
+</nav>
 
-  <header>
-    <div class="eyebrow"><span class="dot"></span> Open to interesting conversations</div>
-    <h1>Vivin Peris.<br/>Engineer building agentic AI at scale.</h1>
-    <p class="lede">Senior Software Engineer at <strong>Rippling</strong>. I build <strong>agentic harnesses, connectors, and evals</strong> that ship AI features customers actually use — and I care about the systems plumbing that makes them work at scale.</p>
-    <div class="hero-links">
-      <a class="btn btn-primary" href="mailto:vivinperis98@gmail.com">Get in touch →</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/vivinperis" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-ghost" href="https://github.com/vivinperis" target="_blank" rel="noopener">GitHub</a>
+<main id="top">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="status"><span class="pulse"></span> Available for select opportunities</div>
+          <h1 class="display">Engineering at the <span class="italic">edge</span> of AI and scale.</h1>
+          <div class="role-line">Vivin Peris <span class="at">·</span> Senior Software Engineer <span class="at">@</span> <span class="co">Rippling</span></div>
+          <p class="lede">I build <strong>agentic AI systems</strong> and the large-scale infrastructure that makes them ship — connector harnesses, evals, and the systems plumbing that turn LLMs into <strong>product features customers actually use</strong>.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:vivinperis98@gmail.com">Get in touch <span class="arrow">→</span></a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/vivinperis" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://github.com/vivinperis" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="avatar-wrap">
+          <div class="avatar-orb orb-1"></div>
+          <div class="avatar-orb orb-2"></div>
+          <div class="avatar">VP</div>
+          <div class="meta-chip">San Francisco<span class="dot">·</span>CA</div>
+        </div>
+      </div>
     </div>
-  </header>
+  </section>
+
+  <section class="stats" style="border-top:0;">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-num">1M<span class="unit">/min</span></div>
+          <div class="stat-label">Peak requests handled on the user service I owned at Ula</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">20K<span class="unit">+</span></div>
+          <div class="stat-label">Companies on Rippling's tax aggregation engine I designed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">50<span class="unit">+</span></div>
+          <div class="stat-label">Engineers shipping with my connector harness</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Patents filed — aggregation engine, AI search, audit framework</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="now" style="border-top:0;">
+    <div class="container">
+      <div class="now-card">
+        <div class="now-label">Currently</div>
+        <div class="now-text">Shipping agentic AI features at <a href="https://www.rippling.com" target="_blank" rel="noopener">Rippling</a> — designing the harness, tooling, and evals that let 50+ engineers build managed connectors in days instead of months, and integrating that connected data into the AI product itself.</div>
+      </div>
+    </div>
+  </section>
 
   <section id="work">
-    <h2>Experience</h2>
-
-    <div class="role">
-      <div class="role-date">May 2024 — Now</div>
-      <div>
-        <div class="role-title">Senior Software Engineer</div>
-        <div class="role-company">Rippling</div>
-        <ul>
-          <li>Designed an agentic connector harness (tooling, skills, evals, judges, simulator) adopted by 50+ engineers</li>
-          <li>Integrated managed connectors with Rippling AI; kept automated eval coverage above 80%</li>
-          <li>Built an aggregation engine across 50+ tax/wage dimensions for 20K companies and 1M employees</li>
-          <li>Three patents filed — aggregation engine, AI-based search, audit framework</li>
-        </ul>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Experience</h2>
+        <span class="section-rule"></span>
       </div>
-    </div>
 
-    <div class="role">
-      <div class="role-date">May 2023 — May 2024</div>
-      <div>
-        <div class="role-title">Senior Software Engineer</div>
-        <div class="role-company">bodo.ai</div>
-        <ul>
-          <li>Led billing export at cluster + job-run level, cutting customer server costs 30%</li>
-          <li>Auto-AZ feature cut cluster failure rates ~40%; spot-instance work saved 50%+ on compute</li>
-          <li>Built a JDBC driver from scratch for Snowflake-style BI tool integration</li>
-        </ul>
+      <div class="role-card">
+        <div class="role-meta">
+          <div class="role-company">
+            <div class="company-mark">R</div>
+            <div class="company-name">Rippling</div>
+          </div>
+          <div class="role-date">May 2024 — Present</div>
+          <div class="role-loc">San Francisco Bay Area</div>
+        </div>
+        <div class="role-body">
+          <h3>Senior Software Engineer</h3>
+          <ul>
+            <li>Designed and delivered an <strong>agentic connector harness</strong> — tooling, skills, evals, judges, simulator — that standardized managed-connector development and cut build time from months to days. Adopted by 50+ engineers across orgs.</li>
+            <li>Integrated managed connectors with Rippling AI so customers can query connected data inside the product; held automated eval coverage above <strong>80%</strong>.</li>
+            <li>Designed an aggregation engine spanning <strong>50+ tax, wage, and deduction dimensions</strong> for 20,000 companies and 1M+ employees — powering automated U.S. tax filing.</li>
+            <li>Built an audit framework reconciling <strong>20M+ records</strong> for a clean migration off legacy infrastructure, plus periodic snapshot infra at company and employee levels.</li>
+            <li>Led the cross-org initiative for managed connectors (SFDC, Jira, Greenhouse) — in-house platform + CDK + onboarded 3 engineers. Filed <strong>3 patents</strong>.</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="role">
-      <div class="role-date">Jul 2020 — Aug 2022</div>
-      <div>
-        <div class="role-title">Senior Software Engineer · Founding Engineer</div>
-        <div class="role-company">Ula</div>
-        <ul>
-          <li>7th tech hire (team grew to 125+); owned user service at 1M req/min peak</li>
-          <li>Homepage personalization drove 30% conversion lift and 20% more orders</li>
-          <li>Onboarding revamp moved successful registration from 35% → 60%</li>
-        </ul>
+      <div class="role-card">
+        <div class="role-meta">
+          <div class="role-company">
+            <div class="company-mark">B</div>
+            <div class="company-name">bodo.ai</div>
+          </div>
+          <div class="role-date">May 2023 — May 2024</div>
+          <div class="role-loc">United States</div>
+        </div>
+        <div class="role-body">
+          <h3>Senior Software Engineer</h3>
+          <ul>
+            <li>Led design of <strong>billing export at cluster and job-run level</strong> — cut customer server costs by 30%.</li>
+            <li>Shipped an auto availability-zone feature that reduced cluster failure rates by <strong>~40%</strong>; spot-instance work saved 50%+ on compute.</li>
+            <li>Wrote a <strong>JDBC driver from scratch</strong> to bridge bodo's compute with Snowflake-style BI tools.</li>
+            <li>Co-owned roadmap planning, reliability process, and APM integration that cut observability cost ~50%.</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="role">
-      <div class="role-date">Jun — Aug 2020</div>
-      <div>
-        <div class="role-title">Google Summer of Code</div>
-        <div class="role-company">Balabit / Syslog-ng</div>
-        <ul>
-          <li>Added template syntax support for the Kafka destination topic() parameter with fallback handling and full unit test coverage</li>
-        </ul>
+      <div class="role-card">
+        <div class="role-meta">
+          <div class="role-company">
+            <div class="company-mark">U</div>
+            <div class="company-name">Ula</div>
+          </div>
+          <div class="role-date">Jul 2020 — Aug 2022</div>
+          <div class="role-loc">Bengaluru, India</div>
+        </div>
+        <div class="role-body">
+          <h3>Senior Software Engineer · Founding Engineer</h3>
+          <ul>
+            <li>Joined as the <strong>7th engineer</strong> (team grew to 125+ in two years); owned the user service at a peak load of <strong>1M req/min</strong>.</li>
+            <li>Led <strong>Digital Pod Automation</strong> (homepage personalization) — drove 30% conversion lift and 20% more orders.</li>
+            <li>Homepage revamp moved successful registration <strong>35% → 60%</strong>; chatbot integration cut customer-care load ~40%.</li>
+            <li>Founding work: payment microservice, district visibility engine, planner/goals tracker, sales-survey tool, and the new <strong>Digital Goods vertical</strong> (drove 50% engagement lift).</li>
+            <li>Led the Grab Defence integration that powered Risk &amp; Compliance's anti-fraud strategy.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-meta">
+          <div class="role-company">
+            <div class="company-mark">G</div>
+            <div class="company-name">Google Summer of Code</div>
+          </div>
+          <div class="role-date">Jun — Aug 2020</div>
+          <div class="role-loc">Balabit / Syslog-ng</div>
+        </div>
+        <div class="role-body">
+          <h3>Student Developer</h3>
+          <ul>
+            <li>Designed and shipped <strong>template-syntax support for the Kafka destination's</strong> <code>topic()</code> parameter, including fallback handling for invalid topics and full unit-test coverage.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-meta">
+          <div class="role-company">
+            <div class="company-mark">+</div>
+            <div class="company-name">Earlier</div>
+          </div>
+          <div class="role-date">2014 — 2020</div>
+          <div class="role-loc">India</div>
+        </div>
+        <div class="role-body">
+          <h3>Research, Robotics, Teaching</h3>
+          <ul>
+            <li><strong>Recotap ABM</strong> — Kafka + Druid pipeline; Flink + NER jobs over a billion-row IP database with Prometheus/Grafana observability.</li>
+            <li><strong>IIT Madras</strong> — Monte Carlo modelling of lung asymmetry vs. disease likelihood (summer research).</li>
+            <li><strong>NITK ROBOCON</strong> — line-following bot &amp; quadruped (ramp climbing + object handling). <a href="https://www.youtube.com/watch?v=Ow9ISLC2RPc" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">demo ↗</a></li>
+            <li><strong>CFAL</strong> — taught 200+ hours of advanced physics and math; students reached top 1000 / 1M on JEE.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="projects">
-    <h2>Selected Projects</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-title">Agentic Connector Harness</div>
-        <div class="card-desc">A tooling + evals + simulator platform at Rippling that standardized managed-connector development. Adopted by 50+ engineers across orgs.</div>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Selected Work</h2>
+        <span class="section-rule"></span>
       </div>
-      <div class="card">
-        <div class="card-title">JDBC Driver from Scratch</div>
-        <div class="card-desc">Built a JDBC driver at bodo.ai to bridge compute jobs with Snowflake-style BI tools — full protocol implementation.</div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">Agentic Connector Harness</div>
+            <div class="project-year">2024 — Now</div>
+          </div>
+          <div class="project-desc">A tooling + evals + simulator platform that standardized managed-connector development at Rippling. Adopted by 50+ engineers across orgs; cut typical build time from months to days.</div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Claude</span>
+            <span class="project-tag">LangGraph</span>
+            <span class="project-tag">Evals</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">Tax Aggregation Engine</div>
+            <div class="project-year">2024</div>
+          </div>
+          <div class="project-desc">Engine aggregating 50+ tax/wage/deduction dimensions across 20K companies and 1M+ employees — powering automated tax filing across U.S. agencies. Patent filed.</div>
+          <div class="project-tags">
+            <span class="project-tag">Distributed Systems</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Patent</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title">JDBC Driver from Scratch</div>
+            <div class="project-year">2023</div>
+          </div>
+          <div class="project-desc">Wrote a full JDBC driver at bodo.ai to bridge the compute engine to Snowflake-style BI tools — protocol implementation, type coercion, connection pooling.</div>
+          <div class="project-tags">
+            <span class="project-tag">Java</span>
+            <span class="project-tag">JDBC</span>
+            <span class="project-tag">Snowflake</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-head">
+            <div class="project-title"><a href="https://www.youtube.com/watch?v=Ow9ISLC2RPc" target="_blank" rel="noopener">Quadruped Robot ↗</a></div>
+            <div class="project-year">2019</div>
+          </div>
+          <div class="project-desc">NITK ROBOCON — quadruped that traverses obstacles, handles objects, and climbs ramps. Plus a line-following bot. Live demos on YouTube.</div>
+          <div class="project-tags">
+            <span class="project-tag">Embedded</span>
+            <span class="project-tag">Robotics</span>
+            <span class="project-tag">C++</span>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-title"><a href="https://www.youtube.com/watch?v=Ow9ISLC2RPc" target="_blank" rel="noopener">Quadruped Robot ↗</a></div>
-        <div class="card-desc">NITK ROBOCON. Obstacle traversal, object handling, ramp climbing. Live demos on YouTube.</div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Stack</h2>
+        <span class="section-rule"></span>
       </div>
-      <div class="card">
-        <div class="card-title">Lung Numerical Modelling</div>
-        <div class="card-desc">IIT Madras research — Monte Carlo simulation of how asymmetry in lung structure affects disease likelihood.</div>
+      <div class="stack-grid">
+        <div>
+          <div class="stack-col-title">AI &amp; ML</div>
+          <ul class="stack-list">
+            <li>Anthropic Claude</li>
+            <li>Google Gemini</li>
+            <li>LangGraph</li>
+            <li>Evals &amp; LLM Judges</li>
+            <li>Embeddings &amp; RAG</li>
+          </ul>
+        </div>
+        <div>
+          <div class="stack-col-title">Languages</div>
+          <ul class="stack-list">
+            <li>Python</li>
+            <li>Java</li>
+            <li>Go</li>
+            <li>TypeScript</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div>
+          <div class="stack-col-title">Data &amp; Infra</div>
+          <ul class="stack-list">
+            <li>Kafka</li>
+            <li>Apache Flink</li>
+            <li>Druid</li>
+            <li>Snowflake / JDBC</li>
+            <li>Distributed Systems</li>
+          </ul>
+        </div>
+        <div>
+          <div class="stack-col-title">Platforms</div>
+          <ul class="stack-list">
+            <li>AWS</li>
+            <li>GCP</li>
+            <li>Kubernetes</li>
+            <li>Datadog &amp; Grafana</li>
+            <li>FastAPI</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Stack</h2>
-    <div class="skills">
-      <span class="skill">Python</span>
-      <span class="skill">Anthropic Claude</span>
-      <span class="skill">Gemini</span>
-      <span class="skill">LLMs</span>
-      <span class="skill">LangGraph</span>
-      <span class="skill">Distributed Systems</span>
-      <span class="skill">Kafka</span>
-      <span class="skill">Flink</span>
-      <span class="skill">Druid</span>
-      <span class="skill">Evals & Judges</span>
-      <span class="skill">AWS</span>
-      <span class="skill">GCP</span>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Education</h2>
+        <span class="section-rule"></span>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-school">Georgia Institute of Technology</div>
+          <div class="edu-degree">M.S., Computer Science</div>
+        </div>
+        <div class="edu-side">Atlanta · USA</div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-school">National Institute of Technology Karnataka</div>
+          <div class="edu-degree">B.Tech</div>
+        </div>
+        <div class="edu-side">Surathkal · India</div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Education</h2>
-    <div class="edu">
-      <div>
-        <div class="edu-school">Georgia Institute of Technology</div>
-        <div class="edu-degree">M.S., Computer Science</div>
-      </div>
-    </div>
-    <div class="edu">
-      <div>
-        <div class="edu-school">National Institute of Technology Karnataka</div>
-        <div class="edu-degree">B.Tech</div>
+  <section class="honors-strip" style="border-bottom:0;">
+    <div class="container">
+      <div class="honors-list">
+        <span class="honor"><span class="star">★</span> KVPY (SX) Scholar</span>
+        <span class="honor"><span class="star">★</span> Top 0.1% — Astronomy Olympiad</span>
+        <span class="honor"><span class="star">★</span> 3 patents filed at Rippling</span>
+        <span class="honor"><span class="star">★</span> Google Summer of Code 2020</span>
       </div>
     </div>
   </section>
 
   <footer id="contact">
-    <div>vivinperis98@gmail.com · San Francisco, CA</div>
-    <div>© 2026 Vivin Peris</div>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-cta">Let's build something <span class="grad">interesting.</span></div>
+          <a class="footer-email" href="mailto:vivinperis98@gmail.com">
+            vivinperis98@gmail.com
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/vivinperis" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/vivinperis" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="mailto:vivinperis98@gmail.com">Email ↗</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Vivin Peris</div>
+        <div>Built with HTML &amp; CSS · Hosted on GitHub Pages</div>
+      </div>
+    </div>
   </footer>
+
 </main>
+
 </body>
 </html>
