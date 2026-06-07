@@ -521,11 +521,11 @@
           <p class="role-arch"><strong>What I own:</strong> the platform layer of Rippling's agentic AI - the harness, evals, LLM judges, simulator, and connectors that 50+ engineers across orgs ship on.</p>
           <ul>
             <li>Designed and delivered an <strong>agentic connector harness</strong> (tooling, skill files, evals, judges, simulator) that standardized managed-connector development; cut typical build time from <strong>months to days</strong>. Adopted by 50+ engineers across orgs.</li>
-            <li>Integrated managed connectors with Rippling AI - customers query connected data inside the product. Automated eval pipeline holds coverage <strong>above 80%</strong> in production.</li>
-            <li>Designed an aggregation engine spanning <strong>50+ tax, wage, and deduction dimensions</strong> for 20,000 companies and 1M+ employees - powering automated U.S. tax filing across agencies.</li>
-            <li>Built an audit framework reconciling <strong>20M+ records</strong> for migration off legacy infrastructure, plus periodic snapshot infra at company and employee levels.</li>
-            <li>Led the cross-org initiative for managed connectors (SFDC, Jira, Greenhouse) - in-house platform &amp; CDK; <strong>onboarded 3 engineers</strong>.</li>
-            <li><strong>3 patents filed</strong> - aggregation engine, AI-based search, audit framework at scale. Active interviewer across levels.</li>
+            <li>Integrated managed connectors with Rippling AI - customers query connected data and trigger actions through natural-language prompts (e.g. <em>"apply for PTO"</em> → action). Automated eval pipeline holds coverage <strong>above 80%</strong> in production.</li>
+            <li>Designed an aggregation engine spanning <strong>50+ tax, wage, and deduction dimensions</strong> for 20,000+ companies and 1M+ employees - powering automated U.S. tax filing across agencies.</li>
+            <li>Built an <strong>AI-based validation framework</strong> that catches data-quality issues at scale - cut fix cycles from <strong>weeks to days</strong>. Paired with an audit framework reconciling <strong>20M+ records</strong> during migration off legacy infrastructure.</li>
+            <li>Led the cross-org initiative for managed connectors (SFDC, Jira, Greenhouse) - in-house platform &amp; CDK; <strong>onboarded 4 engineers</strong> across US and India.</li>
+            <li><strong>3 patents filed</strong> - aggregation engine, AI-based search, AI-based validation framework. Active interviewer across levels.</li>
           </ul>
         </div>
       </div>
@@ -600,8 +600,8 @@
       <div class="role-card">
         <div class="role-meta">
           <div class="role-company">
-            <div class="company-mark">R</div>
-            <div class="company-name">Recotap ABM</div>
+            <div class="company-mark">I</div>
+            <div class="company-name">Impel Labs</div>
           </div>
           <div class="role-date">May - Jul 2019</div>
           <div class="role-loc">Bangalore, India</div>
@@ -609,11 +609,11 @@
         </div>
         <div class="role-body">
           <h3>Software Development Intern</h3>
-          <p class="role-arch"><strong>What I built:</strong> a streaming data pipeline over a <strong>billion-row IP-metadata database</strong> - Kafka ingest, Flink processing with an NER model, Druid for serving - instrumented with Prometheus &amp; Grafana for production observability. At intern scope.</p>
+          <p class="role-arch"><strong>What I built:</strong> a <strong>multi-billion-entry IP-metadata pipeline</strong> - Scrapy scrapers feeding Apache Flink (NER) jobs, streamed via Kafka into Druid for serving - instrumented with Prometheus &amp; Grafana for production observability. At intern scope.</p>
           <ul>
-            <li>Built a scraper that assembled a database of <strong>billions of IPs and their metadata</strong> from multiple sources.</li>
-            <li>Wrote <strong>Apache Flink jobs applying an NER model</strong> over the stream; the Kafka → Flink → Druid pipeline persisted derived signal for downstream queries.</li>
-            <li>Wrote validation Flink jobs that gated server log requests - serving responses only when the requesting IP was valid.</li>
+            <li>Built a <strong>Scrapy</strong> web scraper that assembled a <strong>multi-billion-entry</strong> database of IPs and their metadata.</li>
+            <li>Processed the stream through <strong>Apache Flink jobs applying an NER model</strong>; the Kafka → Flink → Druid pipeline persisted derived signal for downstream queries.</li>
+            <li>Wrote IP-validation Flink jobs that gated server log requests - serving responses only when the requesting IP was valid.</li>
             <li>Instrumented the full stream flow with <strong>Prometheus + Grafana</strong> dashboards.</li>
           </ul>
         </div>
@@ -771,10 +771,10 @@
           </div>
           <div class="pat-item">
             <div class="pat-item-head">
-              <div class="pat-item-title">Audit Framework for Large-Scale Record Reconciliation</div>
+              <div class="pat-item-title">AI-Based Validation Framework for Data Quality at Scale</div>
               <div class="pat-item-status">Filed · 2024</div>
             </div>
-            <div class="pat-item-desc">Reconciliation system that audited 20M+ records during migration off legacy infrastructure with zero data loss.</div>
+            <div class="pat-item-desc">AI-driven validation that catches data-quality discrepancies at scale - cut fix cycles from weeks to days. Paired with an audit framework reconciling 20M+ records during the legacy-platform migration.</div>
           </div>
         </div>
 
@@ -857,41 +857,41 @@
             <li>Google Gemini</li>
             <li>LangGraph</li>
             <li>Evals &amp; LLM Judges</li>
-            <li>Embeddings &amp; RAG</li>
+            <li>Cursor &amp; MCP</li>
             <li>Agentic harnesses</li>
           </ul>
         </div>
         <div>
           <div class="stack-col-title">Languages</div>
           <ul class="stack-list">
-            <li>Python</li>
             <li>Java</li>
-            <li>Go</li>
+            <li>Go · Scala</li>
+            <li>Python · R</li>
             <li>TypeScript</li>
+            <li>C / C++</li>
             <li>SQL</li>
-            <li>C++ (robotics)</li>
           </ul>
         </div>
         <div>
           <div class="stack-col-title">Data &amp; Distributed</div>
           <ul class="stack-list">
-            <li>Apache Kafka</li>
-            <li>Apache Flink</li>
-            <li>Druid</li>
-            <li>Snowflake / JDBC</li>
-            <li>Snapshot / Audit infra</li>
-            <li>NER pipelines</li>
+            <li>Apache Kafka · Flink</li>
+            <li>Apache Iceberg · Druid</li>
+            <li>Elasticsearch</li>
+            <li>Snowflake (JDBC)</li>
+            <li>MongoDB</li>
+            <li>Distributed Systems</li>
           </ul>
         </div>
         <div>
-          <div class="stack-col-title">Platforms &amp; Observability</div>
+          <div class="stack-col-title">Platforms &amp; Tools</div>
           <ul class="stack-list">
             <li>AWS · GCP</li>
             <li>Kubernetes</li>
-            <li>FastAPI</li>
-            <li>Datadog · Grafana</li>
-            <li>Prometheus</li>
-            <li>APM &amp; SLO tooling</li>
+            <li>Spring Boot · Node.js</li>
+            <li>GraphQL</li>
+            <li>Datadog · Grafana · Prometheus</li>
+            <li>Maven · JMeter</li>
           </ul>
         </div>
       </div>
@@ -908,16 +908,16 @@
       <div class="edu-row">
         <div>
           <div class="edu-school">Georgia Institute of Technology</div>
-          <div class="edu-degree">M.S., Computer Science</div>
-          <div class="edu-meta">Cert. - The Bits and Bytes of Computer Networking</div>
+          <div class="edu-degree">M.S., Computer Science · GPA <strong style="color:var(--fg);">4.0 / 4.0</strong></div>
+          <div class="edu-meta">2021 - 2023 · Cert. The Bits and Bytes of Computer Networking</div>
         </div>
         <div class="edu-side">Atlanta · USA</div>
       </div>
       <div class="edu-row">
         <div>
-          <div class="edu-school">National Institute of Technology Karnataka</div>
-          <div class="edu-degree">Bachelor of Technology</div>
-          <div class="edu-meta">CSD ROBOCON · ACM NITK Executive Member</div>
+          <div class="edu-school">National Institute of Technology Surathkal</div>
+          <div class="edu-degree">B.Tech, Computer Science · GPA <strong style="color:var(--fg);">9.75 / 10</strong></div>
+          <div class="edu-meta">2016 - 2020 · ACM NITK Coordinator · ROBOCON · Music Club President</div>
         </div>
         <div class="edu-side">Surathkal · India</div>
       </div>
@@ -927,8 +927,10 @@
   <section class="honors-strip" style="border-bottom:0;">
     <div class="container">
       <div class="honors-list">
-        <span class="honor"><span class="star">★</span> KVPY (SX) Scholar <span class="honor-sub">India's selective national science fellowship</span></span>
-        <span class="honor"><span class="star">★</span> Top 0.1% - Indian National Astronomy Olympiad</span>
+        <span class="honor"><span class="star">★</span> KVPY (SX) 2015 <span class="honor-sub">AIR 292 / 100K+ candidates</span></span>
+        <span class="honor"><span class="star">★</span> Top 1% NSEA <span class="honor-sub">National Astronomy Exam, IAPT</span></span>
+        <span class="honor"><span class="star">★</span> Top 1% NSEP <span class="honor-sub">National Physics Exam, IAPT</span></span>
+        <span class="honor"><span class="star">★</span> Top 50 DRONA <span class="honor-sub">IIM Indore IRIS</span></span>
         <span class="honor"><span class="star">★</span> 3 Patents Filed <span class="honor-sub">Rippling</span></span>
         <span class="honor"><span class="star">★</span> Google Summer of Code 2020 <span class="honor-sub">Balabit / syslog-ng</span></span>
       </div>
