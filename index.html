@@ -913,5 +913,28 @@
 
 </main>
 
+<script>
+  // Copy email to clipboard when any mailto: link is clicked.
+  // Mailto still fires too - so users with an email client get a draft,
+  // and users without one get the address copied with visible feedback.
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href^="mailto:"]');
+    if (!a || !navigator.clipboard) return;
+    var email = a.href.replace(/^mailto:/, '').split('?')[0];
+    navigator.clipboard.writeText(email).then(function() {
+      var arrow = a.querySelector('.arrow');
+      if (arrow) {
+        var orig = arrow.textContent;
+        arrow.textContent = '✓ copied';
+        setTimeout(function() { arrow.textContent = orig; }, 1800);
+      } else {
+        var orig = a.textContent;
+        a.textContent = '✓ Email copied';
+        setTimeout(function() { a.textContent = orig; }, 1800);
+      }
+    }).catch(function() {});
+  });
+</script>
+
 </body>
 </html>
